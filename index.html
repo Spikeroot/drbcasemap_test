@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>Sheet-Driven Map - Test</title>
+    <!-- Loads Mapbox script and CSS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Add style info for map-->
+    <style type='text/css'>
+      #map{
+        height:500px;
+        width: 80%;
+      }
+
+    </style>
+    <!-- link to local css file-->
+    <link rel="stylesheet" href="tstyles.css">
+
+    <!--setup for mapbox geocoder-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+      type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+</head>
+
+<body>
+  <h1> Sheet-Driven Town Map </h1>
+  <h2> Test with Mapbox Tutorial </h2>
+  <br>
+
+  <!--Creates container for map -->
+  <div id='map'> </div>
+
+  <!-- Primary script starts here -->
+  <script>
+    //calls personal mapbox access token
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3Bpa2Vyb290IiwiYSI6ImNrOGoxYXBkZTAydjEzZW1xNmNwMnB0aGgifQ.9aNdlgEoLWFufbanS404BA';
+
+    //initializes map
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/spikeroot/ck8jb9vu8130w1iqght9kyrtp', // stylesheet location
+      center: [28.5335284, 40.538267], // starting position [lng, lat]
+      zoom: 7 // starting zoom
+    });
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+</body>
+</html>

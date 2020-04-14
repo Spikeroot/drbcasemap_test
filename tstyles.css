@@ -1,0 +1,65 @@
+ul {
+ list-style-type: none;
+ margin: 1px;
+ padding: 1px;
+ overflow: hidden;
+ background-color: #F8F1E1;
+}
+
+li {
+ float: left;
+ border-right: 2px solid #D5D5DA;
+}
+
+/* Add a border to all( but not the last) list items */
+li:last-child {
+ border-right: none;
+}
+
+li a {
+ display: block;
+ color: black;
+ text-align: left;
+ padding: 15px 17px;
+ text-decoration: none;
+}
+
+/* Links will change color when hovered over */
+li a:hover {
+ background-color: #C9D3B3;
+}
+
+.active {
+ background-color: #C9D3B3;
+}
+
+head {border-bottom: 1px solid #C9D3B3;}
+body {background-color: #F4F6F7;
+      font: 1em arial;
+      font-weight: lighter;
+      color: #004B74;
+}
+h1 {
+  color:#7A0548;
+  font: small-caps 2em arial;
+  font-weight: bold;
+  margin-bottom: -10px;
+}
+h2 {
+  font: small-caps 2em 'Times New Roman',times,serif;
+  color:#004B74;
+  margin-top: -10px;
+
+}
+h3{
+  color: #004B74;
+  font: 2em serif;
+  font-weight: bolder;
+  margin-bottom: -10px;
+}
+
+a:link {
+  color: #650942;
+  background-color: transparent;
+  text-decoration: none
+}
