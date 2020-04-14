@@ -7,17 +7,50 @@
     <!-- Loads Mapbox script and CSS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Loads Tabletop.JS-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
-    <!-- Add style info for map-->
+    <!-- Add style info for map & popups-->
     <style type='text/css'>
       #map{
         height:500px;
         width: 80%;
+        border: 1px solid black;
       }
+
+      .mapboxgl-popup{
+        padding-bottom: 5px;
+      }
+      .mapboxgl-popup-content{
+      font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+      padding: 0;
+      width: 250px;
+      }
+      .mapboxgl-popup-close-button {
+      display: none;
+      }
+      .mapboxgl-popup-content h3 {
+            background: rgb(61, 59, 59);
+            text-align: center;
+            color: #fff;
+            margin: 0;
+            display: block;
+            padding: 15px;
+            font-weight: 700;
+            margin-top: -5px;
+          }
+
+        .mapboxgl-popup-content h4 {
+            margin: 0;
+            display: block;
+            padding: 10px 3px 10px 10px;
+            font-weight: 400;
+          }
 
     </style>
     <!-- link to local css file-->
     <link rel="stylesheet" href="tstyles.css">
+
 
     <!--setup for mapbox geocoder-->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
@@ -39,27 +72,65 @@
 
   <!-- Primary script starts here -->
   <script>
+
+    //transforms URL request with updated value to indicate Sheet Mapper plugin and allow access
+    var transformRequest = (url, resourceType) => {
+          var isMapboxRequest =
+            url.slice(8, 22) === "api.mapbox.com" ||
+            url.slice(10, 26) === "tiles.mapbox.com";
+          return {
+            url: isMapboxRequest
+              ? url.replace("?", "?pluginName=sheetMapper&")
+              : url
+          };
+        };
+
     //calls personal mapbox access token
     mapboxgl.accessToken = 'pk.eyJ1Ijoic3Bpa2Vyb290IiwiYSI6ImNrOGoxYXBkZTAydjEzZW1xNmNwMnB0aGgifQ.9aNdlgEoLWFufbanS404BA';
 
-    //initializes map
+
+    //initializes map over Wellesley, MA
     var map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/spikeroot/ck8jb9vu8130w1iqght9kyrtp', // stylesheet location
-      center: [28.5335284, 40.538267], // starting position [lng, lat]
-      zoom: 7 // starting zoom
+      style: 'mapbox://styles/spikeroot/ck8u91db4115y1imjwemtmoru', // stylesheet location
+      center: [-71.278, 42.3012269], // starting position [lng, lat]
+      zoom: 12, // starting zoom
+      transformRequest: transformRequest //calls the transformrequest variable
     });
 
+    //establishes function which will be called when map finishes loading
+    map.on('load', function() {
+            init();
+          });
+    //Starts interactive functions of map once loaded
+    function init(){
+      Tabletop.init({ //calls Tabletop.JS
+        key:'<https://docs.google.com/spreadsheets/d/15jV7cHN_8UPS3YMMqg0wUEjXii0ZstAcERXFzuBkl9c/edit?usp=sharing>',
+        callback: addPoints,
+        simpleSheet: true
+      });
+    }
 
+    //Creates function that iterates through table to create markers and popups.
+    function addPoints(data){
+      data.forEach(function(row){
 
+        var popup = new mapboxgl.Popup() //creates popup for each row, populated from table
+            .setHTML(`<h3>` + row.Application + `</h3>` +
+              '<h4>' + '<b>' + 'Type: ' + '</b>' + row.Type + '</h4>' +
+              '<h4>' + '<b>' + 'Address: ' + '</b>' + row.Address + '</h4>' +
+              '<h4>' + '<b>' + 'Applicant: ' + '</b>' + row.Applicant + '</h4>');
 
+        var marker = new mapboxgl.Marker({color: 'red'})//creates marker for each point w/ long/lat from table
+        .setLngLat([row.Longitude, row.Latitude])
+        .setPopup(popup)
+        .addto(map);
 
+      });
+    }
 
 
   </script>
-
-
-
 
 </body>
 </html>
