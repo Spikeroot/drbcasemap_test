@@ -8,3 +8,4 @@ This project is intended to create a web map using Mapbox GL JS and Mapbox Geoco
 The purpose of this project is to test an embeddable web map that can display the locations of applications under review for my planning department.
 
 # How?
+Incoming...

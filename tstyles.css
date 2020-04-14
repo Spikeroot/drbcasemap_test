@@ -1,37 +1,3 @@
-ul {
- list-style-type: none;
- margin: 1px;
- padding: 1px;
- overflow: hidden;
- background-color: #F8F1E1;
-}
-
-li {
- float: left;
- border-right: 2px solid #D5D5DA;
-}
-
-/* Add a border to all( but not the last) list items */
-li:last-child {
- border-right: none;
-}
-
-li a {
- display: block;
- color: black;
- text-align: left;
- padding: 15px 17px;
- text-decoration: none;
-}
-
-/* Links will change color when hovered over */
-li a:hover {
- background-color: #C9D3B3;
-}
-
-.active {
- background-color: #C9D3B3;
-}
 
 head {border-bottom: 1px solid #C9D3B3;}
 body {background-color: #F4F6F7;
