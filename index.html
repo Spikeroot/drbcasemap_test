@@ -94,7 +94,7 @@
       container: 'map', // container id
       style: 'mapbox://styles/spikeroot/ck8u91db4115y1imjwemtmoru', // stylesheet location
       center: [-71.278, 42.3012269], // starting position [lng, lat]
-      zoom: 10, // starting zoom
+      zoom: 10.5, // starting zoom
       transformRequest: transformRequest //calls the transformrequest variable
     });
 
@@ -105,7 +105,7 @@
             map.flyTo({ //fly to starting location
       center: [-71.278, 42.3012269],
       zoom: 12,
-      speed: 0.2,
+      speed: 0.4,
       curve: 1,
       pitch:45,
       easing(t) {
