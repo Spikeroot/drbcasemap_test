@@ -8,4 +8,4 @@ This project is intended to create a web map using Mapbox GL JS and Mapbox Geoco
 The purpose of this project is to test an embeddable web map that can display the locations of applications under review for my planning department.
 
 # How?
-Incoming...
+This project uses Tabletop.JS to read JSON data from a public Google Sheet. It uses this data to set locations for markers and populate popups.
