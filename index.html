@@ -94,13 +94,24 @@
       container: 'map', // container id
       style: 'mapbox://styles/spikeroot/ck8u91db4115y1imjwemtmoru', // stylesheet location
       center: [-71.278, 42.3012269], // starting position [lng, lat]
-      zoom: 12, // starting zoom
+      zoom: 10, // starting zoom
       transformRequest: transformRequest //calls the transformrequest variable
     });
 
     //establishes function which will be called when map finishes loading
     map.on('load', function() {
             init();
+            map.addControl(new mapboxgl.NavigationControl()); //adds basic navigation controls
+            map.flyTo({ //fly to starting location
+      center: [28.5335284, 40.538267],
+      zoom: 12,
+      speed: 0.2,
+      curve: 1,
+      pitch:45,
+      easing(t) {
+        return t;
+      }
+    });
           });
     //Starts interactive functions of map once loaded
     function init(){
