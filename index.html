@@ -97,7 +97,7 @@
       zoom: 10.5, // starting zoom
       transformRequest: transformRequest //calls the transformrequest variable
     });
-
+    map.getCanvas().style.cursor = 'default';
     //establishes function which will be called when map finishes loading
     map.on('load', function() {
             init();
