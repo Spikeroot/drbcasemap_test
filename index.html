@@ -124,7 +124,7 @@
         var marker = new mapboxgl.Marker({color: 'red'})//creates marker for each point w/ long/lat from table
         .setLngLat([row.Longitude, row.Latitude])
         .setPopup(popup)
-        .addto(map);
+        .addTo(map);
 
       });
     }
