@@ -86,14 +86,14 @@
         };
 
     //calls personal mapbox access token
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic3Bpa2Vyb290IiwiYSI6ImNrOGoxYXBkZTAydjEzZW1xNmNwMnB0aGgifQ.9aNdlgEoLWFufbanS404BA';
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGJ3ZWxsZXNsZXkiLCJhIjoiY2s5MzFnY2prMDB1czNscXVoemQzM3dxMyJ9.emp8InU581-2TNNdqdI_Pg';
 
 
     //initializes map over Wellesley, MA
     var map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/spikeroot/ck8u91db4115y1imjwemtmoru', // stylesheet location
-      center: [-71.278, 42.3012269], // starting position [lng, lat]
+      style: 'mapbox://styles/tbwellesley/ck931jhw0048q1io1s10j4g6c', // stylesheet location
+      center: [-71.277, 42.3012269], // starting position [lng, lat]
       zoom: 10.5, // starting zoom
       transformRequest: transformRequest //calls the transformrequest variable
     });
@@ -103,11 +103,11 @@
             init();
             map.addControl(new mapboxgl.NavigationControl()); //adds basic navigation controls
             map.flyTo({ //fly to starting location
-      center: [-71.278, 42.3012269],
-      zoom: 12,
+      center: [-71.277, 42.3012269],
+      zoom: 12.5,
       speed: 0.4,
       curve: 1,
-      pitch:45,
+      bearing:25,
       easing(t) {
         return t;
       }
