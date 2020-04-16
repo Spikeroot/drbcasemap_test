@@ -4,6 +4,7 @@ body {background-color: #FAF5EA;
       font: 1em arial;
       font-weight: lighter;
       color: #004B74;
+      border-top: 1em solid #A6563F;
 }
 h1 {
   color:#A6563F;

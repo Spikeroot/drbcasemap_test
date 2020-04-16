@@ -43,6 +43,7 @@
         .mapboxgl-popup-content h4 {
             margin: 0;
             display: block;
+            color: #A6563F;
             padding: 10px 3px 10px 10px;
             font-weight: 400;
           }
@@ -94,7 +95,7 @@
       container: 'map', // container id
       style: 'mapbox://styles/tbwellesley/ck931jhw0048q1io1s10j4g6c', // stylesheet location
       center: [-71.277, 42.3012269], // starting position [lng, lat]
-      zoom: 10.5, // starting zoom
+      zoom: 11, // starting zoom
       transformRequest: transformRequest //calls the transformrequest variable
     });
     map.getCanvas().style.cursor = 'default';
@@ -107,7 +108,7 @@
       zoom: 12.5,
       speed: 0.4,
       curve: 1,
-      bearing:25,
+      bearing:15,
       easing(t) {
         return t;
       }
