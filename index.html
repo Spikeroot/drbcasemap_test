@@ -133,7 +133,7 @@
               '<h4>' + '<b>' + 'Address: ' + '</b>' + row.Address + '</h4>' +
               '<h4>' + '<b>' + 'Applicant: ' + '</b>' + row.Applicant + '</h4>');
 
-        var marker = new mapboxgl.Marker({color: 'red'})//creates marker for each point w/ long/lat from table
+        var marker = new mapboxgl.Marker({color: 'red'; cursor: pointer;})//creates marker for each point w/ long/lat from table
         .setLngLat([row.Longitude, row.Latitude])
         .setPopup(popup)
         .addTo(map);
