@@ -53,14 +53,14 @@
     <link rel="stylesheet" href="tstyles.css">
 
 
-    <!--setup for mapbox geocoder, disabled for now
+    <!--setup for mapbox geocoder -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet"
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
       type="text/css"/>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-   -->
+
 </head>
 
 <body>
@@ -102,6 +102,12 @@
     //establishes function which will be called when map finishes loading
     map.on('load', function() {
             init();
+            map.addControl( //adds search bar
+              new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+                })
+                );
             map.addControl(new mapboxgl.NavigationControl()); //adds basic navigation controls
             map.flyTo({ //fly to starting location
       center: [-71.277, 42.3012269],
