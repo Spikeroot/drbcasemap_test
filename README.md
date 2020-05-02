@@ -1,4 +1,4 @@
-# drbcasemap_test
+# Sheet-Driven Mapping
 Testing a web map that reads from google sheets. Project page [here](https://spikeroot.github.io/drbcasemap_test/).
 
 ## What?
@@ -8,4 +8,4 @@ This project is intended to create a web map using Mapbox GL JS and Mapbox Geoco
 The purpose of this project is to test an embeddable web map that can display the locations of applications under review for my planning department.
 
 # How?
-This project uses Tabletop.JS to read JSON data from a public Google Sheet. It uses this data to set locations for markers and populate popups.
+This project uses Tabletop.JS to read JSON data from a public Google Sheet. It uses this data to set locations for markers and populate popups. It then displays these markers on a custom Mapbox basemap designed to match the aesthetic of the Wellesley town website.
